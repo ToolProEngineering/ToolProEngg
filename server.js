@@ -18,7 +18,7 @@ var mysql = require('mysql');
 
 // all environments
 
-app.set('port',process.env.OPENSHIFT_NODEJS_PORT || 8080); //var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+app.set('port',process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080); //var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 
 app.set('ip_address',process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'); //var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
