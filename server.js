@@ -70,6 +70,8 @@ app.post('/employers/save', employers.save);
 
 app.use(app.router);
 
-http.createServer(app).listen(app.get('port'), app.get('ip_address'), function(){
+//http.createServer(app);
+
+app.listen(app.get('port'), app.get('ip_address'), function(){
   console.log('Server ' + app.get('ip_address') + ' as Express server listening on port ' + app.get('port'));
 });
