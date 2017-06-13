@@ -1,11 +1,5 @@
-/*
-
-Author: Bootstrapthemes
-Author URI: http://bootstrapthemes.co
-
-*/
 /* ==========================================================================
-   Author's custom styles
+  custom styles
    ========================================================================== */
    
    
@@ -636,7 +630,7 @@ h1 span {
 /* Pricing Section Css */
 
 .pricing_content_area .head_title p{
-	    font-family: 'open_sanslight';
+	font-family: 'open_sanslight';
     font-size: 2.25rem;
     line-height: 6rem;
     margin: 30px 0px;
@@ -819,4 +813,62 @@ padding:30px 0px;
 	margin-left: -6px;
 	text-decoration: none;
 
+}
+
+.aboutUs{
+    /* overflow: hidden; */
+    background-size: cover;
+    padding: 80px 0px 20px 0px;
+    color: #fff;
+}
+
+
+.aboutUs_content_area{
+    width: 100%;
+    height: auto;
+}
+
+
+.aboutUsBanner img{
+    width: 100%;
+    height: auto;
+}
+
+.aboutUs-content{
+    margin-top:40px;
+}
+
+.aboutUs-content-top p{
+	font-size: 2.25rem;
+	font-family: 'open_sanslight';
+	line-height: 5rem;
+}
+
+.aboutUs-content-top p strong{
+color:#5b136d;	
+}
+
+.aboutUs_bottom_content{
+    margin: 2rem 0rem;
+    display: inline-block;
+}
+
+.aboutUs_bottom_highlight_item{
+    font-weight:200;
+	font-size:1.125rem;
+	margin-top:25px;
+    margin-left:10px;
+	font-family: 'open_sansbold';
+}
+
+.aboutUs_bottom_highlight_item strong{
+    color:#ff5e3a;
+    text-transform:uppercase;
+}
+
+.aboutUs-bottom_highlight-top{
+    font-weight:225;
+   	font-size: 1.75rem;
+	font-family: 'open_sanslight';
+	line-height: 5rem; 
 }

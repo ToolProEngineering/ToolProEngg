@@ -9,8 +9,11 @@ var http = require('http');
 var path = require('path');
 
 //load route
+var aboutUs = require('./routes/aboutUs');
+
 var customers = require('./routes/customers'); 
-var employers = require('./routes/employers'); 
+var employers = require('./routes/employers');
+
 var app = express();
 
 var connection  = require('express-myconnection'); 
@@ -56,6 +59,8 @@ app.use(
 
 
 app.get('/', routes.index);
+
+app.get('/aboutUs',aboutUs.main);
 app.get('/customers', customers.list);
 app.get('/customers/add', customers.add);
 app.post('/customers/add', customers.save);
