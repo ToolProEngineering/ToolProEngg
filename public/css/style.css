@@ -866,8 +866,8 @@ color:#5b136d;
     text-transform:uppercase;
 }
 
-.aboutUs-bottom_highlight-top{
-    font-weight:225;
+.aboutUs-bottom_highlight-top p{
+    font-weight:425;
    	font-size: 1.75rem;
 	font-family: 'open_sanslight';
 	line-height: 5rem; 
