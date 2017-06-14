@@ -10,6 +10,7 @@ var path = require('path');
 
 //load route
 var aboutUs = require('./routes/aboutUs');
+var contactUs = require('./routes/contactUs');
 
 var customers = require('./routes/customers'); 
 var employers = require('./routes/employers');
@@ -61,16 +62,15 @@ app.use(
 app.get('/', routes.index);
 
 app.get('/aboutUs',aboutUs.main);
+app.get('/contactUs',contactUs.main);
+
+//not required currently
 app.get('/customers', customers.list);
 app.get('/customers/add', customers.add);
 app.post('/customers/add', customers.save);
 app.get('/customers/delete/:id', customers.delete_customer);
 app.get('/customers/edit/:id', customers.edit);
 app.post('/customers/edit/:id',customers.save_edit);
-
-app.get('/employers', employers.list);
-app.get('/employers/add', employers.add);
-app.post('/employers/save', employers.save);
 
 app.use(app.router);
 

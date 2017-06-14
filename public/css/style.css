@@ -872,3 +872,7 @@ color:#5b136d;
 	font-family: 'open_sanslight';
 	line-height: 5rem; 
 }
+
+.indent{ 
+    text-indent: 30px; 
+}
