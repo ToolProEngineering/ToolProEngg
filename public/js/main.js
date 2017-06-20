@@ -2,14 +2,14 @@
 
 
 jQuery(document).ready(function ($) {
-	$(window).load(function () {
-		$(".loaded").fadeOut();
-		$(".preloader").delay(1000).fadeOut("slow");
-	});
+    $(window).load(function () {
+        $(".loaded").fadeOut();
+        $(".preloader").delay(1000).fadeOut("slow");
+    });
 
-//    /*---------------------------------------------*
-//     * Mobile menu
-//     ---------------------------------------------*/
+    //    /*---------------------------------------------*
+    //     * Mobile menu
+    //     ---------------------------------------------*/
     $('#navbar-collapse').find('a[href*=#]:not([href=#])').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
@@ -28,9 +28,9 @@ jQuery(document).ready(function ($) {
 
 
 
-//    /*---------------------------------------------*
-//     * STICKY scroll
-//     ---------------------------------------------*/
+    //    /*---------------------------------------------*
+    //     * STICKY scroll
+    //     ---------------------------------------------*/
 
     $.localScroll();
 
@@ -40,10 +40,10 @@ jQuery(document).ready(function ($) {
      * Counter 
      ---------------------------------------------*/
 
-//    $('.statistic-counter').counterUp({
-//        delay: 10,
-//        time: 2000
-//    });
+    //    $('.statistic-counter').counterUp({
+    //        delay: 10,
+    //        time: 2000
+    //    });
 
 
 
@@ -53,90 +53,94 @@ jQuery(document).ready(function ($) {
      * WOW
      ---------------------------------------------*/
 
-        var wow = new WOW({
-            mobile: false // trigger animations on mobile devices (default is true)
-        });
-        wow.init();
+    var wow = new WOW({
+        mobile: false // trigger animations on mobile devices (default is true)
+    });
+    wow.init();
 
 
-//    /* ---------------------------------------------------------------------
-//     Carousel
-//     ---------------------------------------------------------------------= */
+    //    /* ---------------------------------------------------------------------
+    //     Carousel
+    //     ---------------------------------------------------------------------= */
 
-//	$('.slider').owlCarousel({
-//        responsiveClass: true,
-//        autoplay: false,
-//        items: 1,
-//        loop: true,
-//        dots: true,
-//	    nav:false,
-//	    navText: [
-//                    "<i class='lnr lnr-chevron-left'></i>",
-//                   "<i class='lnr lnr-chevron-right'></i>"
-//               ],
-//      autoplayHoverPause: true
-//
-//    });
+    //	$('.slider').owlCarousel({
+    //        responsiveClass: true,
+    //        autoplay: false,
+    //        items: 1,
+    //        loop: true,
+    //        dots: true,
+    //	    nav:false,
+    //	    navText: [
+    //                    "<i class='lnr lnr-chevron-left'></i>",
+    //                   "<i class='lnr lnr-chevron-right'></i>"
+    //               ],
+    //      autoplayHoverPause: true
+    //
+    //    });
 
-    
 
-	
-//	$('.chart').easyPieChart({
-//		animate: 2000,
-//            scaleColor: false,
-//            lineWidth: 10,
-//            lineCap: 'square',
-//            size: 130,
-//            trackColor: false,
-//            barColor: '#498af3',
-//            onStep: function (from, to, percent) {
-//                $(this.el).find('.percent').text(Math.round(percent));
-//            }
-//	});
-	
 
-// main-menu-scroll
 
-	jQuery(window).scroll(function () {
-	  var top = jQuery(document).scrollTop();
-		var height = 300;
-	  //alert(batas);
-	  
-	  if (top > height) {
-		jQuery('.navbar-fixed-top').addClass('menu-scroll');
-	  } else {
-	   jQuery('.navbar-fixed-top').removeClass('menu-scroll');
-	  }
-	});	 
-	
-// scroll Up
+    //	$('.chart').easyPieChart({
+    //		animate: 2000,
+    //            scaleColor: false,
+    //            lineWidth: 10,
+    //            lineCap: 'square',
+    //            size: 130,
+    //            trackColor: false,
+    //            barColor: '#498af3',
+    //            onStep: function (from, to, percent) {
+    //                $(this.el).find('.percent').text(Math.round(percent));
+    //            }
+    //	});
 
-    $(window).scroll(function(){
+
+    // main-menu-scroll
+
+    jQuery(window).scroll(function () {
+        var top = jQuery(document).scrollTop();
+        var height = 300;
+        //alert(batas);
+
+        if (top > height) {
+            jQuery('.navbar-fixed-top').addClass('menu-scroll');
+        } else {
+            jQuery('.navbar-fixed-top').removeClass('menu-scroll');
+        }
+    });
+
+    // scroll Up
+
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 600) {
             $('.scrollup').fadeIn('slow');
         } else {
             $('.scrollup').fadeOut('slow');
         }
     });
-	
-    $('.scrollup').click(function(){
+
+    $('.scrollup').click(function () {
         $("html, body").animate({ scrollTop: 0 }, 1000);
         return false;
-    });	
+    });
 
     //End
+
+
 });
 
 
-      function initMap() {
-        var uluru = {lat: 19.406913, lng:72.863431};
+function initMap() {
+    if ($('#map').length == 1) {
+        var uluru = { lat: 19.406913, lng: 72.863431 };
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 18,
-          center: uluru
+            zoom: 18,
+            center: uluru
         });
         var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
+            position: uluru,
+            map: map
         });
-      }
+    }
+}
 

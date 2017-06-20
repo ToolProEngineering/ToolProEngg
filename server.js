@@ -10,6 +10,8 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 
+var serveIndex = require('serve-index');
+
 //load route
 var aboutUs = require('./routes/aboutUs');
 var contactUs = require('./routes/contactUs');
@@ -37,6 +39,20 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/images/products/RUBBER_MOULDED_PARTS', express.static(__dirname + '/public/images/products/RUBBER_MOULDED_PARTS'));
+
+app.use('/images/products/RUBBER_MOULDED_PARTS', serveIndex(__dirname + '/public/images/products/RUBBER_MOULDED_PARTS'));
+
+app.use('/images/products/SS_FASTENERS', express.static(__dirname + '/public/images/products/SS_FASTENERS'));
+
+app.use('/images/products/SS_FASTENERS', serveIndex(__dirname + '/public/images/products/SS_FASTENERS'));
+
+
+app.use('/images/products/SS_PIPE_FITTINGS', express.static(__dirname + '/public/images/products/SS_PIPE_FITTINGS'));
+
+app.use('/images/products/SS_PIPE_FITTINGS', serveIndex(__dirname + '/public/images/products/SS_PIPE_FITTINGS'));
+
 
 // development only
 if ('development' == app.get('env')) {

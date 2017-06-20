@@ -1040,5 +1040,5 @@ border-color: rgb(53, 126, 189);
 .products-image{
     text-align: centre;
     width: 100%; /*set the width or max-width*/
-    height: 250px; /*this makes sure to maintain the aspect ratio*/
+    height: 200px; /*this makes sure to maintain the aspect ratio*/
 }
