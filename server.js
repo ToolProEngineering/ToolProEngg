@@ -3,6 +3,8 @@
  * Module dependencies.
  */
 
+//mongodb://heroku_fsp79d18:ihq88i509ek7m1rks5kal6muj6@ds131119.mlab.com:31119/heroku_fsp79d18
+
 var express = require('express');
 var routes = require('./routes');
 var http = require('http');
@@ -11,6 +13,7 @@ var path = require('path');
 //load route
 var aboutUs = require('./routes/aboutUs');
 var contactUs = require('./routes/contactUs');
+var products = require('./routes/products');
 
 var customers = require('./routes/customers'); 
 var employers = require('./routes/employers');
@@ -63,6 +66,7 @@ app.get('/', routes.index);
 
 app.get('/aboutUs',aboutUs.main);
 app.get('/contactUs',contactUs.main);
+app.get('/products',products.main);
 
 //not required currently
 app.get('/customers', customers.list);
@@ -71,6 +75,8 @@ app.post('/customers/add', customers.save);
 app.get('/customers/delete/:id', customers.delete_customer);
 app.get('/customers/edit/:id', customers.edit);
 app.post('/customers/edit/:id',customers.save_edit);
+
+
 
 app.use(app.router);
 

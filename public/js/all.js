@@ -1,15 +1,25 @@
-function addUser(){
-            
+function addUser() {
+
     window.location.href = '/customers/add';
 }
-function cancelAdd(){
-    
+function cancelAdd() {
+
     window.location.href = '/customers';
 }
-function addEmployers(){
+function addEmployers() {
     window.location.href = "/employers/add"
 }
-function cancelEmployers(){
-    
+function cancelEmployers() {
+
     window.location.href = '/employers';
 }
+
+
+
+
+$(document).ready(function(){
+    $('#hello').click(function () {
+        console.log('here');
+    });
+});
+

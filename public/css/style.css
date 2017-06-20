@@ -1005,3 +1005,40 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !importan
     margin-bottom: 15px;
 }
 
+.products{
+    /* overflow: hidden; */
+    background-size: cover;
+    padding: 80px 0px 20px 0px;
+    height: 28.125rem;
+}
+
+#products-heading{
+background-position: center center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+height: 100%; 
+overflow: hidden;
+background-image: url(/../images/products/banner2.jpg);
+}
+
+.products-content{
+    overflow: hidden;
+    background-size: cover;
+    padding: 30px 0px 20px 0px;
+}
+
+.form-inline .form-group { margin-right:10px; }
+.well-primary {
+color: rgb(255, 255, 255);
+background-color: rgb(66, 139, 202);
+border-color: rgb(53, 126, 189);
+}
+.glyphicon { margin-right:5px; }
+
+.products-image{
+    text-align: centre;
+    width: 100%; /*set the width or max-width*/
+    height: 250px; /*this makes sure to maintain the aspect ratio*/
+}
