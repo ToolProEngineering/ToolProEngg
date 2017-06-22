@@ -124,10 +124,26 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
+    $(document).on('click', '#sendInquiry', function () {
+        var inquiryImageId = $(this).parent().parent().find('img').attr('id');
+        var inquiryImageLocation = $(this).parent().parent().find('img').attr('src');
+
+        console.log(inquiryImageId + inquiryImageLocation);
+
+        $('#inquiryImage').attr('src', inquiryImageLocation);
+        //$('#inquiryImage').attr
+    });
+
+    $('.process-row button').click(function(){
+          $('.panel-collapse').collapse('hide');
+    });
+
+
     //End
 
-
 });
+
+
 
 
 function initMap() {

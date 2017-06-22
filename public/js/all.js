@@ -36,13 +36,11 @@ $(function () {
                         var thumbnailBody = "<div class='col-md-4'> " +
                             "<div class='thumbnail'>" +
                             "<div class='products-image'>" +
-                            "<a href='" + val + "'>" +
-                            "<img class='products-image' src='" + val + "' alt='61'>" +
+                            "<img id ='" + productFolder + '-' + i + "' class='products-image' src='" + val + "'>" +
                             "</div> " +
-                            "<div class='caption text-center'>" +
-                            "<a href='' class='btn btn-primary'>Send Inquiry</a>" +
+                            "<div class='text-center'>" +
+                            "<a id='sendInquiry' class='btn btn-primary' data-toggle='modal' data-target='.modal'>Send Inquiry</a>" +
                             "</div>" +
-                            "</a>" +
                             "</div>" +
                             "</div>";
 
