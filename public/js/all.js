@@ -14,15 +14,68 @@ function cancelEmployers() {
     window.location.href = '/employers';
 }
 
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
+
 $(function () {
     //to load all the images from the folder
 
+    var parentFolder = "/../images/products/";
+
+    var fileExtension = /\.(jpe?g|png|gif)$/;
+
+    //var productFolders = ["RUBBER_MOULDED_PARTS", "SS_FASTENERS", "SS_PIPE_FITTINGS"];
+    var productFolders = ["SS_FASTENERS"];
+
+    if ($('#product_carousel').length == 1) {
+
+        console.log('index page');
+        var k = 0;
+
+        productFolders.forEach(function (productFolder) {
+            var currentFolder = parentFolder + productFolder;
+
+            var count = 0;
+            var thumbnailbody;
+            var thumbnailHeader = "<div class='item'>" +
+                "<div class='row'>";
+
+            var thumbnailFooter = "</div>" +
+                "</div>";
+
+            $.get(currentFolder).then(function (data) {
+
+
+                $(data).find("a").attr("href", function (i, val) {
+                    //console.log(i);
+
+
+                    if (val.match(fileExtension)) {
+                        thumbnailbody += "<div class='col-md-3'><a href='#' class='thumbnail'><img src='" + val + "' alt='Image'></a></div>";
+
+                        //if (count < 4) {
+                        //    count++;
+                        //} else {
+                            $('#product_carousel > .carousel-inner').delay( 10000 ).append("<div class='item'><div class='row'> "+thumbnailbody+" </div></div>");
+                        //    console.log('here');
+                        //    thumbnailbody = null;
+                        //    k++;
+                        //    count = 0;
+                        //}
+                    }
+
+                });
+
+            });
+
+
+        });
+
+    }
+
     if ($('#collapseOne').length == 1) {
-        var parentFolder = "/../images/products/";
 
-        var fileExtension = /\.(jpe?g|png|gif)$/;
-
-        var productFolders = ["RUBBER_MOULDED_PARTS", "SS_FASTENERS", "SS_PIPE_FITTINGS"];
 
         //prepare the default insert for the thumbnail div
 

@@ -586,12 +586,14 @@ h1 span {
 
 /* Home Section */
 .home{
-    background: url(../images/homebg1.jpg) no-repeat top center;
+    
     /* overflow: hidden; */
     background-size: cover;
-    padding: 105px 0px;
+    padding: 100px 0px 10px 0px;
     color: #fff;
 }
+
+
 .main_home{
 }
 .single_home_left{}
@@ -631,16 +633,20 @@ h1 span {
 
 /* Pricing Section Css */
 
+.pricing{
+    padding: 10px 0px;
+}
+
 .pricing_content_area .head_title p{
 	font-family: 'open_sanslight';
     font-size: 2.25rem;
-    line-height: 6rem;
-    margin: 30px 0px;
+    line-height: 2rem;
+    margin: 30px 10px;
 }
 
 .pricing_content_area{
 	background:#fff;
-	padding:40px;
+	padding:10px;
 	overflow:hidden;
 }
 
@@ -1094,3 +1100,81 @@ border-color: rgb(53, 126, 189);
   line-height: 1.428571429;
   border-radius: 15px;
 }
+
+
+.subBanner{
+    padding: 10px 0px;
+}
+
+
+/* products_list section */
+.products_list {
+     background-size: cover;
+    text-align:center;
+    background:#ffffff;
+-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);  /* Firefox 3.5 - 3.6 */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+
+
+.products_head_title{
+    font-family: 'open_sanslight';
+    font-size: 2.25rem;
+    line-height: 3rem;
+    margin: 25px 10px;
+}
+
+
+.products_list ul{
+	margin-top:25px;
+    margin-bottom:25px;
+}
+.products_list ul li{
+	line-height:45px;
+	color:#67267a;
+}
+
+
+/* The Carousel */
+
+#product_carousel_1,
+#product_carousel_2,
+#product_carousel_3{
+    margin:25px 10px 15px 10px;
+}
+
+
+/* The colour of the indicators */
+
+.products_list > .carousel-indicators .active {
+background: #428bca;
+}
+
+.products_list > .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+}
+.products_list .carousel-control.left {
+    background-image:none !important;
+    filter:none !important;
+}
+.products_list .carousel-control.right {
+    background-image:none !important;
+    filter:none !important;
+}
+
+.products_list .container{
+    background-size: cover;
+}
+
+.products_list > img{
+    text-align: centre;
+    width: 100%; /*set the width or max-width*/
+    height: cover; /*this makes sure to maintain the aspect ratio*/
+}
+
+
