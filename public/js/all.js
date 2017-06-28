@@ -17,7 +17,7 @@ function cancelEmployers() {
 
 $(document).ready(function() {
 
-    
+    $('#collapseOne').prev().find('a')[0].click();
     
     function close_accordion_section() {
         $('.accordion .accordion-section-title').removeClass('active');
