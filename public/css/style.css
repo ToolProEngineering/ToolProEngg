@@ -1035,6 +1035,10 @@ background-image: url(/../images/products/banner2.jpg);
     padding: 30px 0px 20px 0px;
 }
 
+#products_menu{
+    margin-bottom: 15px;
+} 
+
 .form-inline .form-group { margin-right:10px; }
 .well-primary {
 color: rgb(255, 255, 255);
