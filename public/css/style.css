@@ -535,6 +535,20 @@ h1 span {
     margin-bottom:0px;
 }
 
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+.navbar-header img {
+  padding: -3px -5px 0px 0px;
+  height: 60px;
+  width: 300px;
+}
 
 .main_menu_bg .navbar-nav>li>a {
     padding-top: 10px;
@@ -1031,7 +1045,7 @@ overflow: hidden;
 .products-content{
     overflow: hidden;
     background-size: cover;
-    padding: 30px 0px 20px 0px;
+    padding: 5px 0px 20px 0px;
 }
 
 #products_menu{
@@ -1120,6 +1134,12 @@ border-color: rgb(53, 126, 189);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 
+
+.products-banner img {
+    height:cover;
+    width:auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+}
 
 
 .products_head_title{

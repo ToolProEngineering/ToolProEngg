@@ -87,9 +87,9 @@ $(function () {
                             "<div class='products-image'>" +
                             "<img id ='" + productFolder + '-' + i + "' class='products-image' src='" + val + "'>" +
                             "</div> " +
-                            "<div class='text-center'>" +
+                           /* "<div class='text-center'>" +
                             "<a id='sendInquiry' class='btn btn-primary' data-toggle='modal' data-target='.modal'>Send Inquiry</a>" +
-                            "</div>" +
+                            "</div>" + */
                             "</div>" +
                             "</div>";
 
