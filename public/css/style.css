@@ -538,17 +538,65 @@ h1 span {
 .navbar-brand {
   padding: 0px;
 }
-.navbar-brand>img {
-  height: 100%;
-  padding: 0px;
-  width: auto;
-}
+
 
 .navbar-header img {
-  padding: -3px -5px 0px 0px;
-  height: 50px;
-  width: 300px;
+  height: 100%;
+
 }
+
+.navbar-left .logo-first{
+    color: #38eeff;
+    font-family: 'Enriqueta', serif;
+    font-size: 24px;
+}
+
+.navbar-left .logo-middle{
+    color: #4b0082;
+    font-family: 'Enriqueta', serif;
+    font-size: 24px;
+}
+
+.main_footer .logo-first{
+    color: #38eeff;
+    font-family: 'Enriqueta', serif;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.main_footer .logo-middle{
+    color: #4b0082;
+    font-family: 'Enriqueta', serif;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.single_widget .logo-first{
+    color: #38eeff;
+    font-family: 'Enriqueta', serif;
+    line-height: 1.0rem;
+    font-size: 0.9rem;
+}
+
+.single_widget .logo-middle{
+    color: #4b0082;
+    font-family: 'Enriqueta', serif;
+    line-height: 1.0rem;
+    font-size: 0.9rem;
+}
+
+
+
+/*
+
+.navbar-brand>img {
+  height: 100%;
+}
+.navbar-brand {
+  padding: 0;
+}
+
+*/
 
 .main_menu_bg .navbar-nav>li>a {
     padding-top: 10px;
