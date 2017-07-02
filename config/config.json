@@ -1,0 +1,34 @@
+{
+    "development": {
+        "urlPath": "/",
+        "username": "toolProEnggDB",
+        "password": "toolpro@1",
+        "database": "heroku_fsp79d18",
+        "host": "ds131119.mlab.com",
+        "port": 31119,
+        "forceUpdate": false
+    },
+    "test": {
+        "urlPath": "/",
+        "username": "root",
+        "password": "",
+        "database": "jobbridge",
+        "host": "localhost",
+        "port": 3306,
+        "forceUpdate": false,
+        "dialect": "mysql",
+        "dialectOptions": {
+            "instanceName": "MySQL57"
+        }
+    },
+    "production": {
+        "urlPath": "/",
+        "username": "toolProEnggDB",
+        "password": "toolpro@1",
+        "database": "heroku_fsp79d18",
+        "host": "ds131119.mlab.com",
+        "port": 31119,
+        "forceUpdate": false
+    }
+}
+//mongodb://<dbuser>:<dbpassword>@ds131119.mlab.com:31119/heroku_fsp79d18

@@ -9,6 +9,13 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
+var moongoose = require('mongoose');
+//var mongoConfig = require('./config/config.json');
+var processEnv = process.env.IP || '0.0.0.0';
+var processPort = process.env.PORT || 8080;
+
+//var clientMongoDB = "mongodb://"+ mongoConfig.app.get('env').username+":"+ mongoConfig.app.get('env').password +"@ds131119.mlab.com:31119/heroku_fsp79d18"
+
 
 var serveIndex = require('serve-index');
 
