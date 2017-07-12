@@ -71,11 +71,13 @@ app.use('/images/products/SS_FASTENERS', express.static(__dirname + '/public/ima
 
 app.use('/images/products/SS_FASTENERS', serveIndex(__dirname + '/public/images/products/SS_FASTENERS'));
 
-
 app.use('/images/products/SS_PIPE_FITTINGS', express.static(__dirname + '/public/images/products/SS_PIPE_FITTINGS'));
 
 app.use('/images/products/SS_PIPE_FITTINGS', serveIndex(__dirname + '/public/images/products/SS_PIPE_FITTINGS'));
 
+app.use('/images/products/SPECIAL_COMPONENTS', express.static(__dirname + '/public/images/products/SPECIAL_COMPONENTS'));
+
+app.use('/images/products/SPECIAL_COMPONENTS', serveIndex(__dirname + '/public/images/products/SPECIAL_COMPONENTS'));
 
 // development only
 if ('development' == app.get('env')) {

@@ -26,6 +26,23 @@ $(document).ready(function () {
         $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
     }
 
+    $("#products_menu_button_SS_Fasteners").click(function () {
+        //$.scrollTo('#collapseOne', 800, { easing: 'elasout' });
+        scrollToElement($('#collapseOne'));
+    });
+
+    $("#products_menu_button_SS_Pipe_Fittings").click(function () {
+        scrollToElement($('#collapseTwo'));
+    });
+
+    $("#products_menu_button_Rubber_Moulded_Parts").click(function () {
+        scrollToElement($('#collapseThree'));
+    });
+
+    $("#products_menu_button_Special_Components").click(function () {
+        scrollToElement($('#collapseFour'));
+    });
+
     $('.accordion-section-title').click(function (e) {
         // Grab current anchor value
         var currentAttrValue = $(this).attr('href');
@@ -52,14 +69,6 @@ $(function () {
         active: false,
         collapsible: true
     });
-
-    var $myGroup = $('#accordion');
-    $('#accordion h4').click(function () {
-        console.log('here');
-        $myGroup.find('.collapse.in').collapse('hide');
-    });
-
-
     //to load all the images from the folder
 
     //var productFolders = ["SS_FASTENERS"];
@@ -69,16 +78,16 @@ $(function () {
         $('#collapseOne .row').html('');
         $('#collapseTwo .row').html('');
         $('#collapseThree .row').html('');
+        $('#collapseFour .row').html('');
         //prepare the default insert for the thumbnail div
         var parentFolder = "/../images/products/";
 
         var fileExtension = /\.(jpe?g|png|gif)$/;
 
-        var productFolders = ["RUBBER_MOULDED_PARTS", "SS_FASTENERS", "SS_PIPE_FITTINGS"];
+        var productFolders = ["RUBBER_MOULDED_PARTS", "SS_FASTENERS", "SS_PIPE_FITTINGS", "SPECIAL_COMPONENTS"];
 
         productFolders.forEach(function (productFolder) {
             var currentFolder = parentFolder + productFolder;
-
 
             $.get(currentFolder).then(function (data) {
 
@@ -102,6 +111,8 @@ $(function () {
                             $('#collapseTwo .row').append(thumbnailBody);
                         } else if (productFolder == "RUBBER_MOULDED_PARTS") {
                             $('#collapseThree .row').append(thumbnailBody);
+                        } else if (productFolder == "SPECIAL_COMPONENTS") {
+                            $('#collapseFour .row').append(thumbnailBody);
                         }
 
                         //$("body").append("<img src='" + val + "'>"); //we need just href from data
@@ -112,4 +123,13 @@ $(function () {
     }
 
 });
+
+function scrollToElement($element) {
+    var $parent = $('body');
+    var topDiff = $element.position().top - $parent.position().top;
+
+    $parent.animate({
+        scrollTop: topDiff
+    }, 100);
+}
 
