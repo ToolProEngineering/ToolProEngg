@@ -1,8 +1,8 @@
 {
     "development": {
         "urlPath": "/",
-        "username": "toolProEnggDB",
-        "password": "Greenash@1",
+        "username": "root",
+        "password": "root",
         "database": "heroku_fsp79d18",
         "host": "ds131119.mlab.com",
         "port": 31119,
@@ -23,8 +23,8 @@
     },
     "production": {
         "urlPath": "/",
-        "username": "toolProEnggDB",
-        "password": "Greenash@1",
+        "username": "root",
+        "password": "root",
         "database": "heroku_fsp79d18",
         "host": "ds131119.mlab.com",
         "port": 31119,

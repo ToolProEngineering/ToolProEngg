@@ -15,30 +15,32 @@ function cancelEmployers() {
 }
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $('#collapseOne').prev().find('a')[0].click();
-    
+    if ($('#collapseOne').length > 0) {
+        $('#collapseOne').prev().find('a')[0].click();
+    }
+
     function close_accordion_section() {
         $('.accordion .accordion-section-title').removeClass('active');
         $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
     }
- 
-    $('.accordion-section-title').click(function(e) {
+
+    $('.accordion-section-title').click(function (e) {
         // Grab current anchor value
         var currentAttrValue = $(this).attr('href');
- 
-        if($(e.target).is('.active')) {
+
+        if ($(e.target).is('.active')) {
             close_accordion_section();
-        }else {
+        } else {
             close_accordion_section();
- 
+
             // Add active class to section title
             $(this).addClass('active');
             // Open up the hidden content panel
-            $('.accordion ' + currentAttrValue).slideDown(300).addClass('open'); 
+            $('.accordion ' + currentAttrValue).slideDown(300).addClass('open');
         }
- 
+
         e.preventDefault();
     });
 
@@ -46,18 +48,18 @@ $(document).ready(function() {
 
 $(function () {
 
-        $("#accordion").show().accordion({
+    $("#accordion").show().accordion({
         active: false,
         collapsible: true
     });
 
     var $myGroup = $('#accordion');
-       $('#accordion h4').click(function() {
-           console.log('here');
-    $myGroup.find('.collapse.in').collapse('hide');
-});
+    $('#accordion h4').click(function () {
+        console.log('here');
+        $myGroup.find('.collapse.in').collapse('hide');
+    });
 
-    
+
     //to load all the images from the folder
 
     //var productFolders = ["SS_FASTENERS"];
@@ -76,21 +78,21 @@ $(function () {
 
         productFolders.forEach(function (productFolder) {
             var currentFolder = parentFolder + productFolder;
-            
+
 
             $.get(currentFolder).then(function (data) {
 
                 $(data).find("a").attr("href", function (i, val) {
-                    
+
                     if (val.match(fileExtension)) {
                         var thumbnailBody = "<div class='col-md-3'> " +
                             "<div class='thumbnail'>" +
                             "<div class='products-image'>" +
                             "<img id ='" + productFolder + '-' + i + "' class='products-image' src='" + val + "'>" +
                             "</div> " +
-                           /* "<div class='text-center'>" +
-                            "<a id='sendInquiry' class='btn btn-primary' data-toggle='modal' data-target='.modal'>Send Inquiry</a>" +
-                            "</div>" + */
+                            /* "<div class='text-center'>" +
+                             "<a id='sendInquiry' class='btn btn-primary' data-toggle='modal' data-target='.modal'>Send Inquiry</a>" +
+                             "</div>" + */
                             "</div>" +
                             "</div>";
 

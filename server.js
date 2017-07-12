@@ -9,7 +9,7 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
-var moongoose = require('mongoose');
+var mongoose = require('mongoose');
 var mongoConfig = require('./config/config.json');
 var processEnv = process.env.IP || '0.0.0.0';
 var processPort = process.env.PORT || 8080;
@@ -27,11 +27,24 @@ var employers = require('./routes/employers');
 var app = express();
 
 var connection = require('express-myconnection');
-var mysql =require('mysql');
+var mysql = require('mysql');
 var appEnv = app.get('env');
 
 //configure DB
-var clientMongoDB = "mongodb://" + mongoConfig[appEnv].username + ":" + mongoConfig[appEnv].password + "@" + mongoConfig[appEnv].host + ":" + mongoConfig[appEnv].port + "/" + mongoConfig[appEnv].database;
+mongoose.Promise = global.Promise;
+var clientMongoDB =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    "mongodb://" + mongoConfig[appEnv].username + ":" + mongoConfig[appEnv].password + "@" + mongoConfig[appEnv].host + ":" + mongoConfig[appEnv].port + "/" + mongoConfig[appEnv].database;
+
+console.log(clientMongoDB);
+mongoose.connect(clientMongoDB, function (err, res) {
+    if (err) {
+        console.log('Error at connecting DB ' + err);
+    } else {
+        console.log('DB Connection Successful to ' + clientMongoDB);
+    }
+});
 
 // all environments
 

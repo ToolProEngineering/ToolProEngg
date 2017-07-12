@@ -150,7 +150,7 @@ jQuery(document).ready(function ($) {
             $('#emailAddress').addClass('error-class');
         } else if (customerData.telephone == '' && !validateTelephone(customerData.telephone)) {
             $('#telephone').addClass('error-class');
-        } else if (customerData.companyName != '' && customerData.emailAddress == '' && !validateEmail(customerData.emailAddress) && customerData.telephone == '' && !validateTelephone(customerData.telephone)) {
+        } else if (customerData.companyName != '' && customerData.emailAddress != '' && validateEmail(customerData.emailAddress) && customerData.telephone != '' && validateTelephone(customerData.telephone)) {
             $('#companyName').removeClass('error-class');
             $('#emailAddress').removeClass('error-class');
             $('#telephone').removeClass('error-class');
@@ -165,8 +165,8 @@ jQuery(document).ready(function ($) {
                     return $.post('/contactUs/sendMessage', customerData);
                 })
                 .then(function (data) {
-                    if(data.success ==1 ){
-                    $('#thankYouMessage').show();
+                    if (data.status == 1) {
+                        $('#thankYouMessage').show();
                     }
                 })
                 .catch(function (err) {
@@ -179,7 +179,7 @@ jQuery(document).ready(function ($) {
 });
 
 function validateTelephone(telephone) {
-    var re = /^[\s\d\s][0-15]$/; //Currently allowing all length but digits
+    var re = /^[0-9]*$/; //Currently allowing all length but digits
     return re.test(telephone);
 }
 

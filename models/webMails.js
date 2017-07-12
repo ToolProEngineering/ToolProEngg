@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var webMails = new Schema({
-    _id: Number,
     email: String,
     password: String,
     createdAt: Date,
@@ -11,4 +10,4 @@ var webMails = new Schema({
     deletedAt: Date
 });
 
-module.exports = mongoose.model('webMails', webMails);
+module.exports = mongoose.model('webmails', webMails);
