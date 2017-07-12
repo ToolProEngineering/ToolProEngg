@@ -37,7 +37,7 @@ var clientMongoDB =
     process.env.MONGOHQ_URL ||
     "mongodb://" + mongoConfig[appEnv].username + ":" + mongoConfig[appEnv].password + "@" + mongoConfig[appEnv].host + ":" + mongoConfig[appEnv].port + "/" + mongoConfig[appEnv].database;
 
-console.log(clientMongoDB);
+
 mongoose.connect(clientMongoDB, function (err, res) {
     if (err) {
         console.log('Error at connecting DB ' + err);

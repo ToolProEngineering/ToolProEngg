@@ -1,5 +1,10 @@
 var webMails = require('../models/webMails');
 var webMessages = require('../models/webMessages');
+var nodemailer = require('nodemailer');
+
+
+
+
 
 
 exports.main = function (req, res) {
@@ -10,11 +15,11 @@ exports.main = function (req, res) {
 exports.sendMessage = function (req, res) {
   var customerMessage = req.body;
   var saveCustomerMessage = new webMessages({
-    companyName: customerMessage.companyName || '',
-    emailAddress: customerMessage.emailAddress || '',
-    telephone: customerMessage.telephone || '',
-    designation: customerMessage.designation || '',
-    description: customerMessage.description || '',
+    companyName: customerMessage.companyName || 'NA',
+    emailAddress: customerMessage.emailAddress || 'NA',
+    telephone: customerMessage.telephone || 'NA',
+    designation: customerMessage.designation || 'NA',
+    description: customerMessage.description || 'NA',
     createdAt: new Date(),
     updatedAt: new Date()
   });
@@ -51,5 +56,39 @@ exports.sendMessage = function (req, res) {
 
 
 function sendEmailMessage(message, email, password) {
+
+  var transporter = nodemailer.createTransport({
+    host: 'smtp.zoho.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: email,
+      pass: password
+    }
+  });
+
+  //transporter.auth.user = email;
+  //transporter.auth.pass = password;
+
+  var composeMail = {
+    from: email,
+    to: 'contact@toolproengg.com',
+    subject: 'Inquiry on ' + new Date().toLocaleDateString("en-US"),
+    html: 'Hi, you have received a message from Contact Us page.on ' + new Date().toLocaleDateString("en-US") + '<br>' +
+    'Company Name: ' + message.companyName + '<br>' +
+    'Email Address: ' + message.emailAddress + '<br>' +
+    'Telephone/Mobile: ' + message.telephone + '<br>' +
+    'Designation: ' + message.designation + '<br>' +
+    'Message Description: ' + message.description + '<br>'
+  }
+
+  transporter.sendMail(composeMail, function (err, res) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Email sent: ' + res.response);
+    }
+  });
+  
   return true;
 }
