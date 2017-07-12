@@ -2,7 +2,7 @@
     "development": {
         "urlPath": "/",
         "username": "toolProEnggDB",
-        "password": "toolpro@1",
+        "password": "Greenash@1",
         "database": "heroku_fsp79d18",
         "host": "ds131119.mlab.com",
         "port": 31119,
@@ -24,11 +24,10 @@
     "production": {
         "urlPath": "/",
         "username": "toolProEnggDB",
-        "password": "toolpro@1",
+        "password": "Greenash@1",
         "database": "heroku_fsp79d18",
         "host": "ds131119.mlab.com",
         "port": 31119,
         "forceUpdate": false
     }
 }
-//mongodb://<dbuser>:<dbpassword>@ds131119.mlab.com:31119/heroku_fsp79d18

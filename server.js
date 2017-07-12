@@ -3,19 +3,16 @@
  * Module dependencies.
  */
 
-//mongodb://heroku_fsp79d18:ihq88i509ek7m1rks5kal6muj6@ds131119.mlab.com:31119/heroku_fsp79d18
+//mongodb://<dbuser>:<dbpassword>@ds131119.mlab.com:31119/heroku_fsp79d18
 
 var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var moongoose = require('mongoose');
-//var mongoConfig = require('./config/config.json');
+var mongoConfig = require('./config/config.json');
 var processEnv = process.env.IP || '0.0.0.0';
 var processPort = process.env.PORT || 8080;
-
-//var clientMongoDB = "mongodb://"+ mongoConfig.app.get('env').username+":"+ mongoConfig.app.get('env').password +"@ds131119.mlab.com:31119/heroku_fsp79d18"
-
 
 var serveIndex = require('serve-index');
 
@@ -24,18 +21,22 @@ var aboutUs = require('./routes/aboutUs');
 var contactUs = require('./routes/contactUs');
 var products = require('./routes/products');
 
-var customers = require('./routes/customers'); 
+var customers = require('./routes/customers');
 var employers = require('./routes/employers');
 
 var app = express();
 
-var connection  = require('express-myconnection'); 
-var mysql = require('mysql');
+var connection = require('express-myconnection');
+var mysql =require('mysql');
+var appEnv = app.get('env');
+
+//configure DB
+var clientMongoDB = "mongodb://" + mongoConfig[appEnv].username + ":" + mongoConfig[appEnv].password + "@" + mongoConfig[appEnv].host + ":" + mongoConfig[appEnv].port + "/" + mongoConfig[appEnv].database;
 
 // all environments
 
-app.set('ip_address',process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '0.0.0.0'); //OPENSHIFT_NODEJS_IP = '127.0.0.1 and Heroku IP = '0.0.0.0'
-app.set('port',process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080); //var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+app.set('ip_address', process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '0.0.0.0'); //OPENSHIFT_NODEJS_IP = '127.0.0.1 and Heroku IP = '0.0.0.0'
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080); //var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -65,7 +66,7 @@ app.use('/images/products/SS_PIPE_FITTINGS', serveIndex(__dirname + '/public/ima
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
 /*------------------------------------------
@@ -74,24 +75,25 @@ if ('development' == app.get('env')) {
 -------------------------------------------*/
 
 app.use(
-    connection(mysql,{
-        
+    connection(mysql, {
+
         host: 'localhost',
         user: 'root',
-        password : '',
-        port : 3306, //port mysql
-        database:'nodejs'
+        password: '',
+        port: 3306, //port mysql
+        database: 'nodejs'
 
-    },'pool') //or single
+    }, 'pool') //or single
 );
 
 
 
 app.get('/', routes.index);
 
-app.get('/aboutUs',aboutUs.main);
-app.get('/contactUs',contactUs.main);
-app.get('/products',products.main);
+app.get('/aboutUs', aboutUs.main);
+app.get('/contactUs', contactUs.main);
+app.post('/contactUs/sendMessage', contactUs.sendMessage);
+app.get('/products', products.main);
 
 //not required currently
 app.get('/customers', customers.list);
@@ -99,7 +101,8 @@ app.get('/customers/add', customers.add);
 app.post('/customers/add', customers.save);
 app.get('/customers/delete/:id', customers.delete_customer);
 app.get('/customers/edit/:id', customers.edit);
-app.post('/customers/edit/:id',customers.save_edit);
+app.post('/customers/edit/:id', customers.save_edit);
+
 
 
 
@@ -107,6 +110,6 @@ app.use(app.router);
 
 var server = http.createServer(app);
 
-server.listen(app.get('port'), app.get('ip_address'), function(){
-  console.log('Server ' + app.get('ip_address') + ' as Express server listening on port ' + app.get('port'));
+server.listen(app.get('port'), app.get('ip_address'), function () {
+    console.log('Server ' + app.get('ip_address') + ' as Express server listening on port ' + app.get('port'));
 });

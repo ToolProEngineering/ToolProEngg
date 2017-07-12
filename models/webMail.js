@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var webMail = new Schema({
+var webMails = new Schema({
     _id: Number,
     email: String,
     password: String,
@@ -11,4 +11,4 @@ var webMail = new Schema({
     deletedAt: Date
 });
 
-module.exports = mongoose.model('webMail', webMail);
+module.exports = mongoose.model('webMails', webMails);

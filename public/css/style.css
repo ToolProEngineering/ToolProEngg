@@ -1243,4 +1243,22 @@ background: #428bca;
     height: cover; /*this makes sure to maintain the aspect ratio*/
 }
 
+.error-class { 
+    border-color: #a94442;
+    border-width: 2px;
+}
+
+
+#thankYouMessage > .panel-heading > p {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    margin-bottom: 1.1rem;
+    font-family: 'open_sansbold';
+}
+
+#thankYouMessage > .panel-body > p {
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+    font-family: 'open_sanslight';
+}
 

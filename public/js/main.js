@@ -2,6 +2,11 @@
 
 
 jQuery(document).ready(function ($) {
+    $('#companyName').removeClass('error-class');
+    $('#emailAddress').removeClass('error-class');
+    $('#telephone').removeClass('error-class');
+    $('#thankYouMessage').hide();
+
     $(window).load(function () {
         $(".loaded").fadeOut();
         $(".preloader").delay(1000).fadeOut("slow");
@@ -25,17 +30,10 @@ jQuery(document).ready(function ($) {
             }
         }
     });
-
-
-
     //    /*---------------------------------------------*
     //     * STICKY scroll
     //     ---------------------------------------------*/
-
     $.localScroll();
-
-
-
     /*---------------------------------------------*
      * Counter 
      ---------------------------------------------*/
@@ -134,16 +132,62 @@ jQuery(document).ready(function ($) {
         //$('#inquiryImage').attr
     });
 
-    $('.process-row button').click(function(){
-          $('.panel-collapse').collapse('hide');
+    $('.process-row button').click(function () {
+        $('.panel-collapse').collapse('hide');
     });
 
+    $('#sendMessage').click(function () {
+        var customerData = {};
+        customerData.companyName = $('#companyName').val();
+        customerData.designation = $('#designation').val();
+        customerData.emailAddress = $('#emailAddress').val();
+        customerData.telephone = $('#telephone').val();
+        customerData.description = $('#description').val();
 
+        if (customerData.companyName == '') {
+            $('#companyName').addClass('error-class');
+        } else if (customerData.emailAddress == '' && !validateEmail(customerData.emailAddress)) {
+            $('#emailAddress').addClass('error-class');
+        } else if (customerData.telephone == '' && !validateTelephone(customerData.telephone)) {
+            $('#telephone').addClass('error-class');
+        } else if (customerData.companyName != '' && customerData.emailAddress == '' && !validateEmail(customerData.emailAddress) && customerData.telephone == '' && !validateTelephone(customerData.telephone)) {
+            $('#companyName').removeClass('error-class');
+            $('#emailAddress').removeClass('error-class');
+            $('#telephone').removeClass('error-class');
+            $('#companyName').val('');
+            $('#emailAddress').val('');
+            $('#telephone').val('');
+            $('#designation').val('');
+            $('#description').val('');
+
+            Promise.resolve()
+                .then(function () {
+                    return $.post('/contactUs/sendMessage', customerData);
+                })
+                .then(function (data) {
+                    if(data.success ==1 ){
+                    $('#thankYouMessage').show();
+                    }
+                })
+                .catch(function (err) {
+                    console.log('Error at ' + err);
+                })
+        }
+    });
     //End
 
 });
 
+function validateTelephone(telephone) {
+    var re = /^[\s\d\s][0-15]$/; //Currently allowing all length but digits
+    return re.test(telephone);
+}
 
+
+function validateEmail(email) {
+    var re = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
+    return re.test(email);
+}
 
 
 function initMap() {
