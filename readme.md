@@ -15,7 +15,7 @@ I started working on this project by keeping in mind about long term goal about 
 ## Configuration (database)
 Please contact at neville.dabre@gmail.com
 
-Steps to run the app
+## Application Link
 	Visit http://www.toolproengg.com/
 
 ## NOTES
