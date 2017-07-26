@@ -1,21 +1,21 @@
-This is a very basic example of CRUD in Node.js n mySQL.
+Welcome to Tool Pro Engineering Project
+
+Tool Pro Engineering is an organization engaged in manufacturing of Stainless Steel Fasteners, Pipe Fittings and Special Customized Components made from Barstock, Castings, Rolled Rings and Forgings.
+
+I started working on this project by keeping in mind about long term goal about my client. I used node.js for my backend development and used jquery, html, css etc. for front end development.
+
+## Technical information
+	Server hosted on Heroku(https://www.heroku.com/)
+	Database stored using MongoDB Hosting(https://mlab.com/)
 
 ## Installation
-*for newbies : Clone or download zip to your machine then hit this :
 
 	npm install
 
 ## Configuration (database)
-app.js
+Please contact at neville.dabre@gmail.com
 
-        host: 'localhost',
-        user: 'root',
-        password : '',//root password of mysql
-        port : 3306, //port mysql
-        database:'nodejs'	
-
-
-	
-You're gonna need to create a DB named 'nodejs' and import customer.sql
+Steps to run the app
+	Visit http://www.toolproengg.com/
 
 ## NOTES
