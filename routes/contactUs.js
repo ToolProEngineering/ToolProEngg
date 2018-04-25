@@ -2,7 +2,8 @@ var webMails = require('../models/webMails');
 var webMessages = require('../models/webMessages');
 var nodemailer = require('nodemailer');
 
-
+var email;
+var password;
 
 
 
@@ -23,8 +24,7 @@ exports.sendMessage = function (req, res) {
     createdAt: new Date(),
     updatedAt: new Date()
   });
-  var email;
-  var password;
+
 
   Promise.resolve()
     .then(function () {
@@ -34,7 +34,7 @@ exports.sendMessage = function (req, res) {
     .then(function (saveCustomerMessageSuccess) {
       //retrive the userId and password
       if (!saveCustomerMessageSuccess.errors) {
-        return webMails.findOne({ 'email': 'webmail@toolproengg.com' });
+        return webMails.findOne({ 'email': 'toolproenggwebmaster@gmail.com' });
       }
     })
     .then(function (webMailData) {
@@ -57,7 +57,7 @@ exports.sendMessage = function (req, res) {
 
 function sendEmailMessage(message, email, password) {
 
-  var transporter = nodemailer.createTransport({
+/*   var transporter = nodemailer.createTransport({
     host: 'smtp.zoho.com',
     port: 465,
     secure: true,
@@ -65,14 +65,22 @@ function sendEmailMessage(message, email, password) {
       user: email,
       pass: password
     }
-  });
+  }); */
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: email,
+      pass: password
+    }
+  })
 
   //transporter.auth.user = email;
   //transporter.auth.pass = password;
 
   var composeMail = {
     from: email,
-    to: 'contact@toolproengg.com',
+    to: 'toolproengg@gmail.com',
     subject: 'Inquiry on ' + new Date().toLocaleDateString("en-US"),
     html: 'Hi, you have received a message from Contact Us page.on ' + new Date().toLocaleDateString("en-US") + '<br>' +
     'Company Name: ' + message.companyName + '<br>' +
